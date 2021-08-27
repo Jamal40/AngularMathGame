@@ -1,0 +1,12 @@
+<form [formGroup]="mathForm">
+  {{ leftNumber }}
+  +
+  {{ rightNumber }}
+
+  <input type="text" formControlName="result" />
+</form>
+
+<hr />
+<div>{{ mathForm.valid | json }}</div>
+<div>{{ mathForm.value | json }}</div>
+<div>{{ mathForm.errors | json }}</div>
