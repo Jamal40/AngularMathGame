@@ -17,6 +17,10 @@ export class EquationComponent implements OnInit {
     return this.mathForm.get('rightNumber').value;
   }
 
+  get result(): number {
+    return this.mathForm.get('result').value;
+  }
+
   secondsPerSolution: number;
   mathForm = new FormGroup(
     {

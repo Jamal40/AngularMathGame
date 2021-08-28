@@ -1,14 +1,22 @@
 <form [formGroup]="mathForm">
-  {{ leftNumber }}
-  +
-  {{ rightNumber }}
+  <div class="equation">
+    {{ leftNumber }}
+    +
+    {{ rightNumber }}
+    =
+  </div>
 
-  <input type="text" formControlName="result" />
+  <input
+    [ngClass]="{
+      highlight:
+        (leftNumber + rightNumber) / result > 0.8 &&
+        (leftNumber + rightNumber) / result < 1.2
+    }"
+    type="text"
+    formControlName="result"
+  />
 </form>
 
-{{ secondsPerSolution | number: "1.0-2" }}
-
-<hr />
-<div>{{ mathForm.valid | json }}</div>
-<div>{{ mathForm.value | json }}</div>
-<div>{{ mathForm.errors | json }}</div>
+<div class="stats">
+  {{ secondsPerSolution | number: "1.0-2" }}
+</div>
